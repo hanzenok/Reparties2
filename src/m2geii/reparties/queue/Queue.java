@@ -41,7 +41,7 @@ public class Queue {
 	
 	public int getSize(){
 		
-		return queue.size() + 1; //+1 car le processu en cours d'execution ne pas comptee
+		return queue.size() + 1; //+1 car le processus en cours d'execution ne pas comptee
 	}
 	
 	public void start(){

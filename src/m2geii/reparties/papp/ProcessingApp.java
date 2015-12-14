@@ -17,15 +17,16 @@ public class ProcessingApp extends UnicastRemoteObject implements ProcessingAppI
 	private static final long serialVersionUID = 1L;
 	
 	private int ps; //capacite de serveur
-//	private int nb_clients;
+	private String name;
 	private Queue q;
 	
 	private ManagerAppInterface ma;
 	
-	protected ProcessingApp(int ps) throws RemoteException{
+	protected ProcessingApp(String name, int ps) throws RemoteException{
 		
 		super();
 		
+		this.name = name;
 		this.ps = ps;
 		
 		q = new Queue();
@@ -45,7 +46,7 @@ public class ProcessingApp extends UnicastRemoteObject implements ProcessingAppI
 	@Override
 	public void mult(final String clientname, final Matrix M, final float scal) throws RemoteException, MatrixException {
 		
-		q.addProcess(new ProcessMultS(q, M, clientname, ma, scal, ps));
+		q.addProcess(new ProcessMultS(this, ma, q, M, clientname, scal, ps));
 	}
 
 	@Override
@@ -68,7 +69,13 @@ public class ProcessingApp extends UnicastRemoteObject implements ProcessingAppI
 		
 		return q.getDuration();
 	}
-
+	
+	@Override
+	public String getName() throws RemoteException {
+		
+		return name;
+	}
+	
 	@Override
 	public int getPs() throws RemoteException {
 		

@@ -110,10 +110,7 @@ public class ManagerApp extends UnicastRemoteObject implements ManagerAppInterfa
 		client.showResult();
 		
 		//detacher client de la liste des clients
-		clients.remove(client);
-		
-		//fermer le client
-		client.close();
+		clients.remove(getClient(clientname));
 	}
 	
 	public ProcessingAppInterface getLessBusyest() throws RemoteException{

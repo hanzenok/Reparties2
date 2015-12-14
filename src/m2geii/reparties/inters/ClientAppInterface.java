@@ -18,5 +18,4 @@ public interface ClientAppInterface extends Remote{
 	public Matrix transpose(Matrix m) throws RemoteException, MatrixException;
 	
 	public String getName() throws RemoteException;
-	public void close() throws RemoteException;
 }

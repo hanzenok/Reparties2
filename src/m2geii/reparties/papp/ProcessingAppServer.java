@@ -23,7 +23,7 @@ public class ProcessingAppServer {
 			System.setSecurityManager(new SecurityManager());
 		}
 		
-		ProcessingAppInterface pa = new ProcessingApp(Integer.parseInt(args[1]));
+		ProcessingAppInterface pa = new ProcessingApp(args[0], Integer.parseInt(args[1]));
 		
 	    Registry registry = LocateRegistry.getRegistry();
 	    registry.rebind(args[0], pa);

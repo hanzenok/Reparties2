@@ -14,6 +14,7 @@ public interface ProcessingAppInterface extends Remote {
 	public void transpose(Matrix m) throws RemoteException, MatrixException;
 	
 	public int getBusyness() throws RemoteException;
+	public String getName() throws RemoteException;
 	public int getPs() throws RemoteException;
 	
 	public void registerManager(ManagerAppInterface ma) throws RemoteException;

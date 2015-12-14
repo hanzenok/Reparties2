@@ -2,8 +2,11 @@ package m2geii.reparties.papp;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 import m2geii.reparties.inters.ManagerAppInterface;
+import m2geii.reparties.inters.ProcessingAppInterface;
 import m2geii.reparties.matrix.Matrix;
 import m2geii.reparties.matrix.MatrixException;
 import m2geii.reparties.queue.Process;
@@ -15,7 +18,8 @@ public class ProcessMultS extends Process{
 	private float scal;
 	private int ps; //capacite
 	private final static int COEF = 15;//coef de l'operation
-	private ManagerAppInterface ma;
+	private ProcessingAppInterface pa; //processing pas qui execute le thread
+	private ManagerAppInterface ma; //manager
 	private String clientname; //nom de client qui demande les service
 	
 	private int duration; //duration d'operation
@@ -23,7 +27,7 @@ public class ProcessMultS extends Process{
 	private String message; //le chaine des caracteres conteneur de message a afficher
 	private Queue q; 
 	
-	ProcessMultS(Queue q, Matrix M, String clientname, ManagerAppInterface ma, float scal, int ps) {
+	ProcessMultS(ProcessingAppInterface pa, ManagerAppInterface ma, Queue q, Matrix M, String clientname, float scal, int ps) {
 		
 		super(ps*COEF);
 		
@@ -32,6 +36,7 @@ public class ProcessMultS extends Process{
 		this.q = q;
 		this.M = M;
 		
+		this.pa = pa;
 		this.ma = ma;
 		this.clientname = clientname;
 		
@@ -52,7 +57,8 @@ public class ProcessMultS extends Process{
 				System.out.printf("\033[H\033[2J");//effacage d'affichage
 				System.out.flush();
 				
-				System.out.println("Total duration: " + q.getDuration()  + "s, clients: " + q.getSize()); //affichage de la fil d'attente de serveur
+				System.out.println("Server: " + pa.getName() + ", ps = " + pa.getPs());
+				System.out.println("Total duration: " + q.getDuration()  + "s, clients: " + q.getSize() + "\n"); //affichage de la fil d'attente de serveur
 				
 				//message interactif
 				message += ".";
@@ -64,7 +70,7 @@ public class ProcessMultS extends Process{
 				
 			} 
 			catch(InterruptedException e) {Thread.currentThread().interrupt();} 
-//			catch (IOException e) {e.printStackTrace();}
+			catch (RemoteException e) {e.printStackTrace();}
 		}
 		System.out.println();
 		
@@ -85,6 +91,9 @@ public class ProcessMultS extends Process{
 		//agir sur manager pour envoyer la reponse vers client
 		try { ma.sendToClient(clientname, M); } 
 		catch (RemoteException e) { e.printStackTrace(); }
+		
+		System.out.printf("\033[H\033[2J");//effacage d'affichage
+		System.out.flush();
 	}
 	
 }
