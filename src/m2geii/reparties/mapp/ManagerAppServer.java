@@ -17,7 +17,7 @@ public class ManagerAppServer {
 			System.out.println("Usage:\n./mapp.sh localhost {list of servernames}\n./mapp.sh 192.168.120.2 {list of servernames}\n");
 			
 			//notice
-			System.out.println("Execute before launching: export CLASSPATH=$(pwd)/papp.jar:mapp.jar:capp.jar:inters.jar:matrix.jar");
+			System.out.println("Execute before launching: export CLASSPATH=$(pwd)/mapp.jar:inters.jar:matrix.jar");
 			
 			System.exit(0);
 		}
