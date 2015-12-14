@@ -18,7 +18,7 @@ public class ClientAppServer {
 		
 		if(args.length <= 1){
 			
-			System.out.println("Exemple d'utilisation:\n./capp.sh {clientname} localhost\n./capp.sh {clientname} 192.168.120.2\n");
+			System.out.println("Usage:\n./capp.sh {clientname} localhost\n./capp.sh {clientname} 192.168.120.2\n");
 			
 			System.exit(0);
 		}
@@ -46,8 +46,6 @@ public class ClientAppServer {
 		System.out.println("Before calc (client " + ca.getName() + "): \n" + M);
 		
 		ca.mult(M, 2);
-		
-		
 		
 	}
 

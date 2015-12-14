@@ -23,7 +23,6 @@ public class ManagerApp extends UnicastRemoteObject implements ManagerAppInterfa
 	private static final long serialVersionUID = 1L;
 	private ArrayList<ClientAppInterface> clients; //liste des clients connectees
 	
-	
 	private String host;
 	
 	private ProcessingAppInterface[] servers;
@@ -109,6 +108,12 @@ public class ManagerApp extends UnicastRemoteObject implements ManagerAppInterfa
 		//mettre et afficher le resultat au niveau de client
 		client.setResult(M);
 		client.showResult();
+		
+		//detacher client de la liste des clients
+		clients.remove(client);
+		
+		//fermer le client
+		client.close();
 	}
 	
 	public ProcessingAppInterface getLessBusyest() throws RemoteException{

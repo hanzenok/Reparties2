@@ -84,5 +84,12 @@ public class ClientApp extends UnicastRemoteObject implements ClientAppInterface
 		
 		return name;
 	}
+
+	@Override
+	public void close() throws RemoteException {
+		
+		System.exit(0);
+		
+	}
 	
 }
