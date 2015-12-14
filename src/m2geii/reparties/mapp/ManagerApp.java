@@ -16,6 +16,8 @@ import m2geii.reparties.inters.ClientAppInterface;
 import m2geii.reparties.inters.ManagerAppInterface;
 import m2geii.reparties.inters.ProcessingAppInterface;
 
+//Deleting client, interactive manager
+
 public class ManagerApp extends UnicastRemoteObject implements ManagerAppInterface {
 	
 	private static final long serialVersionUID = 1L;
@@ -96,7 +98,6 @@ public class ManagerApp extends UnicastRemoteObject implements ManagerAppInterfa
 	public void registerClient(ClientAppInterface ca) throws RemoteException {
 
 		clients.add(ca);
-		
 	}
 	
 	@Override
