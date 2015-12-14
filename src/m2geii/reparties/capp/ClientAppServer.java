@@ -23,6 +23,9 @@ public class ClientAppServer {
 			System.out.println("Usage:\n./capp.sh {clientname} localhost {nb lines} {nb colomns} {option}\n./capp.sh {clientname} 192.168.120.2 {nb lines} {nb colomns} {option}");
 			System.out.println("\noption = 1-scalar multiplication, 2-matrix multiplication, 3-addition, 4-transposition");
 			
+			//notice
+			System.out.println("Execute before launching: export CLASSPATH=$(pwd)/capp.jar:inters.jar:matrix.jar");
+			
 			System.exit(0);
 		}
 		

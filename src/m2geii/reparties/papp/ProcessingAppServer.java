@@ -15,6 +15,10 @@ public class ProcessingAppServer {
 			
 			System.out.println("Usage:\n./papp.sh {server name} {ps}\n");
 			
+			//notice
+			System.out.println("Execute before launching: export CLASSPATH=$(pwd)/papp.jar:mapp.jar:inters.jar:matrix.jar:queue.jar");
+			System.out.println("Then: rmiregistry&");
+			
 			System.exit(0);
 		}
 		

@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 import m2geii.reparties.matrix.Matrix;
 import m2geii.reparties.matrix.MatrixException;
-import m2geii.reparties.papp.ProcessingApp;
 import m2geii.reparties.inters.ClientAppInterface;
 import m2geii.reparties.inters.ManagerAppInterface;
 import m2geii.reparties.inters.ProcessingAppInterface;
