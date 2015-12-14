@@ -63,7 +63,8 @@ public class ProcessingApp extends UnicastRemoteObject implements ProcessingAppI
 
 	@Override
 	public void transpose(final String clientname, Matrix m) throws RemoteException {
-		// TODO Auto-generated method stub
+		
+		q.addProcess(new ProcessTransM(this, ma, q, m, clientname, ps));
 	}
 
 	@Override

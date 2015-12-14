@@ -104,7 +104,7 @@ public class ClientAppServer {
 				
 				break;
 				
-			case 3: //multiplication de matrice par une matrice
+			case 3: //addition de matrice avec une matrice
 				
 				//effacage d'affichage
 				System.out.printf("\033[H\033[2J");
@@ -130,6 +130,33 @@ public class ClientAppServer {
 				
 				//calcul
 				ca.add(M1, M2);
+				//l'affichage de resultat sera solicite par manager
+				
+				break;
+				
+			case 4: //transposition d'une matrice
+				
+				//effacage d'affichage
+				System.out.printf("\033[H\033[2J");
+				System.out.flush();
+				
+				//chargement de la table avec les valeurs aleatoires
+				float[][] TAB = new float[n][m];
+				for(i=0;i<n;i++)
+					for(j=0;j<m;j++){
+						TAB[i][j] = rand.nextInt(100);
+					}
+					
+					
+				Matrix mat = new Matrix(n, m, TAB);
+				
+				
+				//affichage
+				System.out.println("Transposition of\n");
+				System.out.println(mat + "\n");
+				
+				//calcul
+				ca.transpose(mat);
 				//l'affichage de resultat sera solicite par manager
 				
 				break;
