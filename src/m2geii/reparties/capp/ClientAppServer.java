@@ -1,7 +1,15 @@
 package m2geii.reparties.capp;
 
+/**
+ * Une classe principale de côte client.
+ * Traite les parametres de programme etnrées par l'utilisateur.
+ * Passe diférrentes traitements vers le ClientApp.
+ * 
+ * L'afichage de résultat des calcule est solicité par le manager
+ * @author Ganza Mykhailo
+ */
+
 import java.net.MalformedURLException;
-import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -14,7 +22,7 @@ import m2geii.reparties.inters.ManagerAppInterface;
 
 public class ClientAppServer {
 	
-	final static java.util.Random rand = new java.util.Random();
+	final static java.util.Random rand = new java.util.Random(); //générateur aléatoire
 	
 	public static void main(String[] args) throws MatrixException, MalformedURLException, RemoteException, NotBoundException {
 		
@@ -29,21 +37,23 @@ public class ClientAppServer {
 			System.exit(0);
 		}
 		
+		//securité
 		if(System.getSecurityManager() == null) {
 		    System.setSecurityManager(new SecurityManager());
 		}
 		
 		int i,j;
-		int n=Integer.parseInt(args[2]);
-		int m=Integer.parseInt(args[3]);
+		int n=Integer.parseInt(args[2]);//nombre des lignes
+		int m=Integer.parseInt(args[3]);//nombre des colognes
 		
+		//connexion
 		Registry registry = LocateRegistry.getRegistry(args[1]);
 		ManagerAppInterface ma = (ManagerAppInterface)registry.lookup("122");
 		
 		ClientAppInterface ca = new ClientApp(args[0], ma);
 		
 		//traitement
-		int option = Integer.parseInt(args[4]);
+		int option = Integer.parseInt(args[4]); //défini type des calcule à faire
 		
 		switch(option){
 		

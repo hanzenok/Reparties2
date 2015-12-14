@@ -1,5 +1,10 @@
 package m2geii.reparties.inters;
 
+/**
+ * Interface d'un objet ProcessingApp
+ * @author Ganza Mykhailo
+ */
+
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 

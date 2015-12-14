@@ -1,6 +1,10 @@
 package m2geii.reparties.inters;
 
-import java.rmi.NotBoundException;
+/**
+ * Interface d'un objet ClientApp
+ * @author Ganza Mykhailo
+ */
+
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
