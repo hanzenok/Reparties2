@@ -1,0 +1,1 @@
+export CLASSPATH=/home/gunza/workspace/Reparties/bin/papp.jar:mapp.jar:capp.jar:inters.jar:matrix.jar:queue.jar
