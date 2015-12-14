@@ -27,7 +27,13 @@ public class ProcessingAppServer {
 		
 	    Registry registry = LocateRegistry.getRegistry();
 	    registry.rebind(args[0], pa);
-	    System.out.println("Server " + args[0] + " is launched. ps is " + ((ProcessingApp) pa).getPs() + "\n");
+
+		//effacage d'affichage
+		System.out.printf("\033[H\033[2J");
+		System.out.flush();
+		
+		//affichage de l'etat de serveru
+		System.out.println("Server: " + pa.getName() + ", ps = " + pa.getPs());
 
 	}
 }

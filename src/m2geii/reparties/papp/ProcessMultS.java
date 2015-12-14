@@ -1,6 +1,7 @@
 package m2geii.reparties.papp;
 
 import java.io.IOException;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -90,7 +91,8 @@ public class ProcessMultS extends Process{
 		
 		//agir sur manager pour envoyer la reponse vers client
 		try { ma.sendToClient(clientname, M); } 
-		catch (RemoteException e) { e.printStackTrace(); }
+		catch (RemoteException e) { e.printStackTrace(); } 
+		catch (NotBoundException e) { e.printStackTrace(); }
 		
 		//effacage d'affichage
 		System.out.printf("\033[H\033[2J");

@@ -28,13 +28,12 @@ public class ManagerAppServer {
 		
 	    Registry registry = LocateRegistry.getRegistry();
 	    registry.rebind("122", ma);
-	    System.out.println("Manager at " + args[0] + " launched. Serves servers ");
-	    for(int i=1; i<args.length; i++){
-	    	
-	    	System.out.println(args[i]);
-	    }
-	    System.out.println("\n");
 	    
+		//effacage d'affichage
+		System.out.printf("\033[H\033[2J");
+		System.out.flush();
+	    
+	    //affichage de l'etat de manager
 	    ma.showStats();
 
 	}

@@ -1,5 +1,6 @@
 package m2geii.reparties.inters;
 
+import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
@@ -14,7 +15,7 @@ public interface ManagerAppInterface extends Remote {
 	public Matrix transpose(Matrix m) throws RemoteException, MatrixException;
 	
 	public void registerClient(ClientAppInterface ca) throws RemoteException;
-	public void sendToClient(String clientname, Matrix M) throws RemoteException;
+	public void sendToClient(String clientname, Matrix M) throws RemoteException, NotBoundException;
 	
 	public void showStats() throws RemoteException;
 }
