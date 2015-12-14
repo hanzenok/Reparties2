@@ -16,4 +16,5 @@ public interface ManagerAppInterface extends Remote {
 	public void registerClient(ClientAppInterface ca) throws RemoteException;
 	public void sendToClient(String clientname, Matrix M) throws RemoteException;
 	
+	public void showStats() throws RemoteException;
 }

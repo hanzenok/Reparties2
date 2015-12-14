@@ -92,8 +92,11 @@ public class ProcessMultS extends Process{
 		try { ma.sendToClient(clientname, M); } 
 		catch (RemoteException e) { e.printStackTrace(); }
 		
-		System.out.printf("\033[H\033[2J");//effacage d'affichage
+		//effacage d'affichage
+		System.out.printf("\033[H\033[2J");
 		System.out.flush();
+		try {System.out.println("Server: " + pa.getName() + ", ps = " + pa.getPs());} 
+		catch (RemoteException e) {e.printStackTrace();}
 	}
 	
 }

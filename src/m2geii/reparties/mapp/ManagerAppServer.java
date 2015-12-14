@@ -35,7 +35,7 @@ public class ManagerAppServer {
 	    }
 	    System.out.println("\n");
 	    
-//	    ma.doSomethingOnClient();
+	    ma.showStats();
 
 	}
 }

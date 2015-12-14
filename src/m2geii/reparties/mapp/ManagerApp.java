@@ -68,8 +68,6 @@ public class ManagerApp extends UnicastRemoteObject implements ManagerAppInterfa
 		//recherche de client qui a solicite la connexion dans la liste des clients
 		ClientAppInterface client = getClient(clientname);
 		
-		System.out.println("Calculating scalar multiplication for client " + client.getName());
-		
 		getLessBusyest().mult(clientname, M, scal);//reccuperer le serveur le moins occuppe et executer
 		//se le serveur qui realie le calcul et solicite le client grace a la fonction sentToCLient de manager
 
@@ -148,6 +146,23 @@ public class ManagerApp extends UnicastRemoteObject implements ManagerAppInterfa
 		}
 		
 		return null;
+	}
+
+	@Override
+	public void showStats() throws RemoteException {
+		
+		int i,n = clients.size();
+		
+		System.out.println(n + " clients:");
+		
+		for(i=0; i<n; i++){
+			
+			System.out.println(clients.get(i).getName());
+		}
+		
+		//effacage d'affichage
+		System.out.printf("\033[H\033[2J");
+		System.out.flush();
 	}
 
 
