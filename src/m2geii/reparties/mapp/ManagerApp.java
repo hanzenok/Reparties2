@@ -20,11 +20,12 @@ import m2geii.reparties.inters.ProcessingAppInterface;
 public class ManagerApp extends UnicastRemoteObject implements ManagerAppInterface {
 	
 	private static final long serialVersionUID = 1L;
+	
 	private ArrayList<ClientAppInterface> clients; //liste des clients connectees
+	private ProcessingAppInterface[] servers;
 	
 	private String host;
 	
-	private ProcessingAppInterface[] servers;
 	private Registry registry;
 	
 	protected ManagerApp(String[] args) throws RemoteException, NotBoundException{
