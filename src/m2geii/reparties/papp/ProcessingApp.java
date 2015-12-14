@@ -50,17 +50,19 @@ public class ProcessingApp extends UnicastRemoteObject implements ProcessingAppI
 	}
 
 	@Override
-	public void mult(Matrix m1, Matrix m2) throws RemoteException {
-		// TODO Auto-generated method stub
+	public void mult(final String clientname, Matrix m1, Matrix m2) throws RemoteException {
+		
+		q.addProcess(new ProcessMultM(this, ma, q, m1, m2, clientname, ps));
 	}
 
 	@Override
-	public void add(Matrix m1, Matrix m2) throws RemoteException {
-		// TODO Auto-generated method stub
+	public void add(final String clientname, Matrix m1, Matrix m2) throws RemoteException {
+		
+		q.addProcess(new ProcessAddM(this, ma, q, m1, m2, clientname, ps));
 	}
 
 	@Override
-	public void transpose(Matrix m) throws RemoteException {
+	public void transpose(final String clientname, Matrix m) throws RemoteException {
 		// TODO Auto-generated method stub
 	}
 

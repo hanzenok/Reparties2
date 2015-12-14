@@ -14,9 +14,9 @@ public interface ClientAppInterface extends Remote{
 	public Matrix getResult() throws RemoteException;
 	
 	public void mult(Matrix m, float scal) throws RemoteException, MatrixException;
-	public Matrix mult(Matrix m1, Matrix m2) throws RemoteException, MatrixException;
-	public Matrix add(Matrix m1, Matrix m2) throws RemoteException, MatrixException;
-	public Matrix transpose(Matrix m) throws RemoteException, MatrixException;
+	public void mult(Matrix m1, Matrix m2) throws RemoteException, MatrixException;
+	public void add(Matrix m1, Matrix m2) throws RemoteException, MatrixException;
+	public void transpose(Matrix m) throws RemoteException, MatrixException;
 	
 	public String getName() throws RemoteException;
 }

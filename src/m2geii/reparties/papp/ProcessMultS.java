@@ -1,10 +1,7 @@
 package m2geii.reparties.papp;
 
-import java.io.IOException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 
 import m2geii.reparties.inters.ManagerAppInterface;
 import m2geii.reparties.inters.ProcessingAppInterface;
@@ -28,7 +25,7 @@ public class ProcessMultS extends Process{
 	private String message; //le chaine des caracteres conteneur de message a afficher
 	private Queue q; 
 	
-	ProcessMultS(ProcessingAppInterface pa, ManagerAppInterface ma, Queue q, Matrix M, String clientname, float scal, int ps) {
+	public ProcessMultS(ProcessingAppInterface pa, ManagerAppInterface ma, Queue q, Matrix M, String clientname, float scal, int ps) {
 		
 		super(ps*COEF);
 		

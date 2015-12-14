@@ -62,23 +62,21 @@ public class ClientApp extends UnicastRemoteObject implements ClientAppInterface
 	}
 
 	@Override
-	public Matrix mult(Matrix m1, Matrix m2) throws RemoteException,
-			MatrixException {
-		// TODO Auto-generated method stub
-		return null;
+	public void mult(Matrix m1, Matrix m2) throws RemoteException, MatrixException {
+
+		ma.mult(name, m1, m2);
 	}
 
 	@Override
-	public Matrix add(Matrix m1, Matrix m2) throws RemoteException,
-			MatrixException {
-		// TODO Auto-generated method stub
-		return null;
+	public void add(Matrix m1, Matrix m2) throws RemoteException, MatrixException {
+		
+		ma.add(name, m1, m2);
 	}
 
 	@Override
-	public Matrix transpose(Matrix m) throws RemoteException, MatrixException {
-		// TODO Auto-generated method stub
-		return null;
+	public void transpose(Matrix m) throws RemoteException, MatrixException {
+		
+		ma.transpose(name, m);
 	}
 
 	@Override

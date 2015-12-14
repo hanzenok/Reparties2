@@ -31,6 +31,14 @@ public class Matrix implements Serializable{
 		
 	}
 	
+	public Matrix(int nbLines, int nbCols){
+		
+		this.nbLines = nbLines;
+		this.nbCols = nbCols;
+		
+		tab = new float[nbLines][nbCols];
+	}
+	
 	public void setValue(int i, int j, float value) throws MatrixException{
 		
 		if (i<0 || j<0 || i>nbLines-1 || j>nbCols-1){

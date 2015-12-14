@@ -63,8 +63,7 @@ public class ManagerApp extends UnicastRemoteObject implements ManagerAppInterfa
 
 	@Override
 	public void mult(final String clientname, final Matrix M, final float scal) throws RemoteException, MatrixException {
-			    	
-					
+			    						
 		//recherche de client qui a solicite la connexion dans la liste des clients
 		ClientAppInterface client = getClient(clientname);
 		
@@ -74,21 +73,33 @@ public class ManagerApp extends UnicastRemoteObject implements ManagerAppInterfa
 	}
 
 	@Override
-	public Matrix mult(Matrix m1, Matrix m2) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public void mult(final String clientname, Matrix m1, Matrix m2) throws RemoteException, MatrixException {
+		
+		//recherche de client qui a solicite la connexion dans la liste des clients
+		ClientAppInterface client = getClient(clientname);
+		
+		getLessBusyest().mult(clientname, m1, m2);//reccuperer le serveur le moins occuppe et executer
+		//se le serveur qui realie le calcul et solicite le client grace a la fonction sentToCLient de manager
 	}
 
 	@Override
-	public Matrix add(Matrix m1, Matrix m2) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public void add(final String clientname, Matrix m1, Matrix m2) throws RemoteException, MatrixException {
+		
+		//recherche de client qui a solicite la connexion dans la liste des clients
+		ClientAppInterface client = getClient(clientname);
+		
+		getLessBusyest().add(clientname, m1, m2);//reccuperer le serveur le moins occuppe et executer
+		//se le serveur qui realie le calcul et solicite le client grace a la fonction sentToCLient de manager
 	}
 
 	@Override
-	public Matrix transpose(Matrix m) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+	public void transpose(final String clientname, Matrix m) throws RemoteException, MatrixException {
+		
+		//recherche de client qui a solicite la connexion dans la liste des clients
+		ClientAppInterface client = getClient(clientname);
+		
+		getLessBusyest().transpose(clientname, m);//reccuperer le serveur le moins occuppe et executer
+		//se le serveur qui realie le calcul et solicite le client grace a la fonction sentToCLient de manager
 	}
 
 	@Override
