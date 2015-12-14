@@ -166,7 +166,7 @@ public class ManagerApp extends UnicastRemoteObject implements ManagerAppInterfa
 			System.out.println("\n" + m + " servers:\n");
 			for(i=0; i<m; i++){
 				
-				System.out.println(servers[i].getName() + ", time = " + servers[i].getBusyness());
+				System.out.println(servers[i].getName() + ", time = " + servers[i].getBusyness() + "s");
 			}
 			
 			//pause pour ne pas trop charger le manager

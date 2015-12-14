@@ -14,11 +14,14 @@ import m2geii.reparties.inters.ManagerAppInterface;
 
 public class ClientAppServer {
 	
+	final static java.util.Random rand = new java.util.Random();
+	
 	public static void main(String[] args) throws MatrixException, MalformedURLException, RemoteException, NotBoundException {
 		
-		if(args.length <= 1){
-			
-			System.out.println("Usage:\n./capp.sh {clientname} localhost\n./capp.sh {clientname} 192.168.120.2\n");
+		if(args.length != 5){
+
+			System.out.println("Usage:\n./capp.sh {clientname} localhost {nb lines} {nb colomns} {option}\n./capp.sh {clientname} 192.168.120.2 {nb lines} {nb colomns} {option}");
+			System.out.println("\noption = 1-scalar multiplication, 2-matrix multiplication, 3-addition, 4-transposition");
 			
 			System.exit(0);
 		}
@@ -28,13 +31,14 @@ public class ClientAppServer {
 		}
 		
 		int i,j;
-		int n=3, m=2;
+		int n=Integer.parseInt(args[2]);
+		int m=Integer.parseInt(args[3]);
 		
+		//chargement de la table avec les valeurs aleatoires
 		float[][] tab = new float[n][m];
-		
 		for(i=0;i<n;i++)
 			for(j=0;j<m;j++)
-				tab[i][j] = i+j;
+				tab[i][j] = rand.nextInt(100);
 			
 		Matrix M = new Matrix(n, m, tab);
 		
@@ -43,9 +47,35 @@ public class ClientAppServer {
 		
 		ClientAppInterface ca = new ClientApp(args[0], ma);
 		
-		System.out.println("Before calc (client " + ca.getName() + "): \n" + M);
+		//traitement
+		int option = Integer.parseInt(args[4]);
 		
-		ca.mult(M, 2);
+		switch(option){
+		
+		case 1: //multiplication de matrice par un scalaire
+			
+			//effacage d'affichage
+			System.out.printf("\033[H\033[2J");
+			System.out.flush();
+			
+			int scal = rand.nextInt(6);//valeur scalaire aleatoire
+			
+			//affichage
+			System.out.println("Multiplication of\n");
+			System.out.println(M);
+			System.out.println("by " + scal + "\n");
+			
+			//calcul
+			ca.mult(M, scal);
+			//l'affichage de resultat sera solicite par manager
+			
+			break;
+
+		default:
+			break;
+		}
+		
+		
 		
 	}
 

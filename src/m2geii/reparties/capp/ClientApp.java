@@ -40,7 +40,7 @@ public class ClientApp extends UnicastRemoteObject implements ClientAppInterface
 	@Override
 	public void showResult() throws RemoteException {
 		
-		System.out.println("From client: \n" + M.toString());
+		System.out.println("Result: \n\n" + M);
 	}
 	
 	@Override
