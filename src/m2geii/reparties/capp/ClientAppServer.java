@@ -1,14 +1,5 @@
 package m2geii.reparties.capp;
 
-/**
- * Une classe principale de côte client.
- * Traite les parametres de programme etnrées par l'utilisateur.
- * Passe diférrentes traitements vers le ClientApp.
- * 
- * L'afichage de résultat des calcule est solicité par le manager
- * @author Ganza Mykhailo
- */
-
 import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -20,6 +11,14 @@ import m2geii.reparties.matrix.MatrixException;
 import m2geii.reparties.inters.ClientAppInterface;
 import m2geii.reparties.inters.ManagerAppInterface;
 
+/**
+ * Une classe principale de côte client.
+ * Traite les parametres de programme etnrées par l'utilisateur.
+ * Passe diférrentes traitements vers le ClientApp.
+ * 
+ * L'afichage de résultat des calcule est solicité par le manager
+ * @author Ganza Mykhailo
+ */
 public class ClientAppServer {
 	
 	final static java.util.Random rand = new java.util.Random(); //générateur aléatoire
@@ -128,7 +127,6 @@ public class ClientAppServer {
 						Tab1[i][j] = rand.nextInt(100);
 						Tab2[i][j] = rand.nextInt(100);
 					}
-					
 					
 				Matrix M1 = new Matrix(n, m, Tab1);
 				Matrix M2 = new Matrix(n, m, Tab2);

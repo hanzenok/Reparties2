@@ -1,12 +1,5 @@
 package m2geii.reparties.capp;
 
-/**
- * Un objet ClientApp qui réalise 
- * les calcules matricielles
- * grâce à un objet distant RMI
- * @author Ganza Mykhailo
- */
-
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
@@ -15,6 +8,12 @@ import m2geii.reparties.matrix.MatrixException;
 import m2geii.reparties.inters.ClientAppInterface;
 import m2geii.reparties.inters.ManagerAppInterface;
 
+/**
+ * Un objet ClientApp qui réalise 
+ * les calcules matricielles
+ * grâce à un objet distant RMI
+ * @author Ganza Mykhailo
+ */
 public class ClientApp extends UnicastRemoteObject implements ClientAppInterface{
 	
 	private static final long serialVersionUID = 1L;

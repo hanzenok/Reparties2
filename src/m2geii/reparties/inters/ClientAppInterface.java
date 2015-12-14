@@ -1,16 +1,15 @@
 package m2geii.reparties.inters;
 
-/**
- * Interface d'un objet ClientApp
- * @author Ganza Mykhailo
- */
-
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 import m2geii.reparties.matrix.Matrix;
 import m2geii.reparties.matrix.MatrixException;
 
+/**
+ * Interface d'un objet ClientApp
+ * @author Ganza Mykhailo
+ */
 public interface ClientAppInterface extends Remote{
 	
 	public void showResult() throws RemoteException;
