@@ -153,13 +153,20 @@ public class ManagerApp extends UnicastRemoteObject implements ManagerAppInterfa
 		
 		while(true){
 			
+			//affichage des clients conntectees
 			int i,n = clients.size();
-			
-			System.out.println(n + " clients:");
-			
+			System.out.println(n + " clients:\n");
 			for(i=0; i<n; i++){
 				
 				System.out.println(clients.get(i).getName());
+			}
+			
+			//affichage des serveurs connectees
+			int m = servers.length;
+			System.out.println("\n" + m + " servers:\n");
+			for(i=0; i<m; i++){
+				
+				System.out.println(servers[i].getName() + ", time = " + servers[i].getBusyness());
 			}
 			
 			//pause pour ne pas trop charger le manager
