@@ -151,18 +151,25 @@ public class ManagerApp extends UnicastRemoteObject implements ManagerAppInterfa
 	@Override
 	public void showStats() throws RemoteException {
 		
-		int i,n = clients.size();
-		
-		System.out.println(n + " clients:");
-		
-		for(i=0; i<n; i++){
+		while(true){
 			
-			System.out.println(clients.get(i).getName());
+			int i,n = clients.size();
+			
+			System.out.println(n + " clients:");
+			
+			for(i=0; i<n; i++){
+				
+				System.out.println(clients.get(i).getName());
+			}
+			
+			//pause pour ne pas trop charger le manager
+			try {Thread.sleep(1000);} 
+			catch (InterruptedException e) { e.printStackTrace();}
+			
+			//effacage d'affichage
+			System.out.printf("\033[H\033[2J");
+			System.out.flush();
 		}
-		
-		//effacage d'affichage
-		System.out.printf("\033[H\033[2J");
-		System.out.flush();
 	}
 
 
