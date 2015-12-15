@@ -8,6 +8,13 @@ import java.rmi.registry.Registry;
 
 import m2geii.reparties.inters.ManagerAppInterface;
 
+/**
+ * Une classe principale de côte manager.
+ * 
+ * Depose les objets distantes ManagerApp
+ * 
+ * @author Ganza Mykhailo
+ */
 public class ManagerAppServer {
 
 	public static void main(String[] args) throws RemoteException, MalformedURLException, NotBoundException {

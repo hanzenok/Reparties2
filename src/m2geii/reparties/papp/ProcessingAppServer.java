@@ -7,6 +7,14 @@ import java.rmi.registry.Registry;
 
 import m2geii.reparties.inters.ProcessingAppInterface;
 
+/**
+ * Une classe principale de côte serveur.
+ * 
+ * Depose les objets distantes ProcessingApp
+ * Affiche l'état de serveur
+ * 
+ * @author Ganza Mykhailo
+ */
 public class ProcessingAppServer {
 
 	public static void main(String[] args) throws RemoteException, MalformedURLException {
